@@ -4,6 +4,7 @@ import gsap from "gsap";
 import LiquidBackground from "./components/LiquidBackground";
 import SplashScreen from "./components/SplashScreen";
 import Carousel from "./components/carousel/Carousel";
+import { Home } from "./components/Home";
 
 type Screen = "splash" | "home" | "chapters" | "detail";
 
@@ -24,7 +25,7 @@ export default function App() {
       if (screenRef.current === "splash") {
         navigate("home", "bubble");
       }
-    }, 4000);
+    }, 3000);
     return () => clearTimeout(t);
   }, []);
 
@@ -153,12 +154,7 @@ export default function App() {
 
       {screen === "home" && (
         <div className="screen-root screen" aria-hidden={false}>
-          <div className="m-auto flex flex-col items-center">
-            <h1 className="text-white text-3xl mb-6">Home</h1>
-            <div className="flex gap-3">
-              <button className="btn" onClick={() => navigate("chapters", "bubble")}>Enter</button>
-            </div>
-          </div>
+          <Home onEnter={() => navigate("chapters", "bubble")} />
         </div>
       )}
 

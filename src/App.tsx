@@ -9,7 +9,7 @@ function App() {
     showScreen("splashScreen");
 
     setTimeout(() => {
-      bubbleTransition("splashScreen", "homeScreen");
+      bubbleTransition("homeScreen");
     }, 3000);
   }, []);
 
@@ -21,7 +21,7 @@ function App() {
     el.style.display = "flex";
   };
 
-  const bubbleTransition = (fromId: string, toId: string) => {
+  const bubbleTransition = (toId: string) => {
     const app = document.getElementById("App") as HTMLElement;
 
     const bubble = document.createElement("div");
@@ -93,7 +93,7 @@ function App() {
 
       <section className="screen" id="homeScreen">
         <h1>Home</h1>
-        <button onClick={() => bubbleTransition("homeScreen", "chaptersScreen")}>Next</button>
+        <button onClick={() => bubbleTransition("chaptersScreen")}>Next</button>
       </section>
 
       <section className="screen" id="chaptersScreen">

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #111;
+  color: white;
+  font-size: 2rem;
+}
+
+.bubble-transition {
+  position: absolute;
+  background: #fff; /* warna bubble, bisa diganti */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+}

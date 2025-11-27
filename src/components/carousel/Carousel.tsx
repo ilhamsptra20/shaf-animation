@@ -8,6 +8,7 @@ import CarouselCard from "./CarouselCard";
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
+type Screen = "splash" | "home" | "detail";
 type Props = {
   cards: {
     img: string;
@@ -15,9 +16,11 @@ type Props = {
     subtitle: string;
     href?: string;
   }[];
+  // navigate: (to: string, method: "slide" | "bubble") => void;
+  navigate: (to: Screen, method: "slide" | "bubble") => void | Promise<void>;
 };
 
-export default function Carousel({ cards }: Props) {
+export default function Carousel({ cards, navigate }: Props) {
   
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -120,7 +123,9 @@ export default function Carousel({ cards }: Props) {
 
           if (currentCenter === i) {
             // Sudah di tengah → buka link
-            window.open(cards[i].href, "_blank");
+            // window.open(cards[i].href, "_blank");
+            // console.log("Buka link");
+            navigate("detail", "slide")
             return;
           }
 

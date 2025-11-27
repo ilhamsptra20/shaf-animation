@@ -164,7 +164,7 @@ export default function App() {
 
       {screen === "chapters" && (
         <div className="screen-root screen" aria-hidden={false}>
-          <Carousel cards={cards} />
+          <Carousel cards={cards} navigate={navigate} />
           <div className="flex justify-center mt-6">
             <button className="btn" onClick={() => navigate("detail", "slide")}>Go detail</button>
           </div>

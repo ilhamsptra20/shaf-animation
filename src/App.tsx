@@ -131,10 +131,10 @@ export default function App() {
   );
 
   const cards = [
-    { img: "/1.png", href: "/link1" },
-    { img: "/2.png", href: "/link2" },
-    { img: "/3.png", href: "/link3" },
-    { img: "/4.png", href: "/link4" },
+    { img: "/1.png", title: "Chapter I", subtitle: "The Beginning", href: "" },
+    { img: "/2.png", title: "Chapter II", subtitle: "Deep Woods", href: "" },
+    { img: "/3.png", title: "Chapter III", subtitle: "Lost Path", href: "" },
+    { img: "/4.png", title: "Chapter IV", subtitle: "Revelation", href: "" },
   ];
 
   return (
@@ -156,8 +156,7 @@ export default function App() {
           <div className="m-auto flex flex-col items-center">
             <h1 className="text-white text-3xl mb-6">Home</h1>
             <div className="flex gap-3">
-              <button className="btn" onClick={() => navigate("chapters", "bubble")}>Next (bubble)</button>
-              <button className="btn" onClick={() => navigate("chapters", "slide")}>Next (slide)</button>
+              <button className="btn" onClick={() => navigate("chapters", "bubble")}>Enter</button>
             </div>
           </div>
         </div>

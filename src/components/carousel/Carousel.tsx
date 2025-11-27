@@ -1,5 +1,3 @@
-// types
-type CardItem = { img: string; href: string };
 
 // Carousel.tsx
 import { useRef, useEffect } from "react";
@@ -10,12 +8,20 @@ import CarouselCard from "./CarouselCard";
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
-type Props = { cards: CardItem[] };
+type Props = {
+  cards: {
+    img: string;
+    title: string;
+    subtitle: string;
+    href?: string;
+  }[];
+};
 
 export default function Carousel({ cards }: Props) {
+  
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const draggableRef = useRef<unknown>(null);
+  const draggableRef = useRef<InstanceType<typeof Draggable> | null>(null);
   const centerIndexRef = useRef<number>(0); // indeks card tengah
 
   useEffect(() => {
@@ -127,7 +133,7 @@ export default function Carousel({ cards }: Props) {
             ease: "power3.out",
             onUpdate: updateCardTilt,
             onComplete: () => {
-              draggableRef.current.update();
+              draggableRef.current?.update();
               centerIndexRef.current = i; // update indeks tengah
             },
           });
@@ -160,8 +166,12 @@ export default function Carousel({ cards }: Props) {
         style={{ padding: 0, gap: "5%" }}
       >
         {cards.map((c, i) => (
-          <div key={i} className="carousel-card flex-shrink-0 transform-gpu">
-            <CarouselCard img={c.img} />
+          <div key={i} className="carousel-card shrink-0 transform-gpu">
+            <CarouselCard 
+              img={c.img}
+              title={c.title}
+              subtitle={c.subtitle}
+            />
           </div>
         ))}
       </div>

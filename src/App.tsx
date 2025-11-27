@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
+import LiquidBackground from "./components/LiquidBackground";
+import SplashScreen from "./components/SplashScreen";
 
 function App() {
 
@@ -8,7 +10,7 @@ function App() {
 
     setTimeout(() => {
       bubbleTransition("splashScreen", "homeScreen");
-    }, 10000);
+    }, 3000);
   }, []);
 
   const showScreen = (id: string) => {
@@ -83,8 +85,10 @@ function App() {
   return (
     <div id="App" className="h-screen w-screen overflow-hidden relative">
 
+      <LiquidBackground />
+
       <section className="screen" id="splashScreen">
-        <h1>Splash</h1>
+        <SplashScreen />
       </section>
 
       <section className="screen" id="homeScreen">

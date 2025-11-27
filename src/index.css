@@ -1,21 +1,34 @@
+/* global.css (tailwind + custom) */
 @import "tailwindcss";
 
+/* screen root styling — mounted one will be visible */
 .screen {
   position: absolute;
   inset: 0;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background: #111; */
   color: white;
-  font-size: 2rem;
+  font-size: 1.125rem;
+  /* ensure new mounts start visible for animation control */
+  opacity: 1;
 }
 
+/* bubble minimal */
 .bubble-transition {
   position: absolute;
-  background: #fff; /* warna bubble, bisa diganti */
+  background: #fff;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 999;
+  z-index: 9999;
+}
+
+/* simple btn */
+.btn {
+  background: rgba(255,255,255,0.08);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
